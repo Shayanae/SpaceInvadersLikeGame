@@ -3,6 +3,7 @@ package entity;
 import ressources.Constant;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Objects;
 
 public class StarShip extends Entity{
@@ -29,7 +30,7 @@ public class StarShip extends Entity{
     }
 
     // METHODES
-    public int StarShipDisplacement(){
+    public int starShipDisplacement(){
         // Renvoie la nouvelle position du vaisseau après déplacement éventuel
         if(this.dx < 0){
             if(this.xPos > Constant.leftLimitStarShip){this.xPos = this.xPos + this.dx;}
@@ -39,4 +40,7 @@ public class StarShip extends Entity{
         return xPos;
     }
 
+    public void drawStarShip(Graphics g){
+        g.drawImage(this.img, this.starShipDisplacement(), this.yPos, null);
+    }
 }

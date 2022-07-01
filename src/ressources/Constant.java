@@ -36,6 +36,7 @@ public abstract class Constant {
     public final static int columnGapAlien = 10;
 
     // Unité de déplacement de l'alien
-    public final static int dxAlien = 5;
-    public final static int dyAlien = 25;
+    public final static int dxAlien = 2;
+    public final static int dyAlien = 20;
+    public final static int alienSpeed = 1;
 }
