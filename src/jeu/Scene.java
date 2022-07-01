@@ -1,5 +1,6 @@
 package jeu;
 
+import entity.AlienGroup;
 import entity.StarShip;
 import ressources.Constant;
 import ressources.Keyboard;
@@ -11,6 +12,7 @@ import java.awt.*;
 public class Scene extends JPanel {
     // VARIABLES
     public StarShip starShip = new StarShip();
+    public AlienGroup alienGroup = new AlienGroup();
 
     // CONSTRUCTEURS
 
@@ -42,5 +44,8 @@ public class Scene extends JPanel {
 
         // Dessin du vaisseau
         g2.drawImage(this.starShip.getImg(), this.starShip.StarShipDisplacement(), this.starShip.getyPos(), null);
+
+        // Dessin du groupe d'alien
+        this.alienGroup.drawAliens(g2);
     }
 }

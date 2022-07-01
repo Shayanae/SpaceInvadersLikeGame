@@ -23,4 +23,19 @@ public abstract class Constant {
     // Limite de déplcaement du vaisseau
     public final static int leftLimitStarShip = 60;
     public final static int rightLimitStarShip = 500;
+
+    /************************************ Alien **************************************/
+    // Dimensions de l'alien
+    public final static int alienWidth = 33;
+    public final static int alienHeight = 25;
+
+    // Paramètres de position des aliens
+    public final static int initial_Alien_Y = 120;
+    public final static int initial_alien_X = 29 + windowMargin;
+    public final static int lineGapAlien = 40;
+    public final static int columnGapAlien = 10;
+
+    // Unité de déplacement de l'alien
+    public final static int dxAlien = 5;
+    public final static int dyAlien = 25;
 }
