@@ -18,7 +18,7 @@ public class StarShip extends Entity{
         super.yPos = Constant.initial_StarShip_Y;
         super.weight = Constant.starShipWidth;
         super.height = Constant.starShipHeight;
-        super.dx = Constant.dxStarShip;
+        super.dx = 0;
         super.dy = 0;
         // Adresse des images du vaisseau
         super.strImg1 = "/images/vaisseau.png";
@@ -29,5 +29,14 @@ public class StarShip extends Entity{
     }
 
     // METHODES
+    public int StarShipDisplacement(){
+        // Renvoie la nouvelle position du vaisseau après déplacement éventuel
+        if(this.dx < 0){
+            if(this.xPos > Constant.leftLimitStarShip){this.xPos = this.xPos + this.dx;}
+        } else if (dx > 0) {
+            if(this.xPos + this.dx < Constant.rightLimitStarShip){this.xPos = this.xPos + this.dx;}
+        }
+        return xPos;
+    }
 
 }

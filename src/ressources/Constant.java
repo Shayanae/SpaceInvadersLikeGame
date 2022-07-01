@@ -19,4 +19,8 @@ public abstract class Constant {
 
     // Unité de déplacement du vaisseau
     public final static int dxStarShip = 1;
+
+    // Limite de déplcaement du vaisseau
+    public final static int leftLimitStarShip = 60;
+    public final static int rightLimitStarShip = 500;
 }
