@@ -2,6 +2,7 @@ package jeu;
 
 import entity.AliensGroup;
 import entity.StarShip;
+import entity.StarShipShoot;
 import ressources.Constant;
 import ressources.Keyboard;
 import ressources.Timer;
@@ -13,6 +14,7 @@ public class Scene extends JPanel {
     // VARIABLES
     public StarShip starShip = new StarShip();
     public AliensGroup aliensGroup = new AliensGroup();
+    public StarShipShoot starShipShoot = new StarShipShoot();
 
     // CONSTRUCTEURS
 
@@ -47,5 +49,8 @@ public class Scene extends JPanel {
 
         // Dessin du groupe d'alien
         this.aliensGroup.drawAliens(g2);
+
+        // Dessin du tir du vaisseau
+        this.starShipShoot.drawStarShipFire(g2);
     }
 }

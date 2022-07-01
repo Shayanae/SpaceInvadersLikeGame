@@ -39,4 +39,12 @@ public abstract class Constant {
     public final static int dxAlien = 2;
     public final static int dyAlien = 20;
     public final static int alienSpeed = 1;
+
+    /********************************** TIR VAISSEAU *********************************/
+    // Dimension du tir
+    public static final int widthStarShipShoot = 3;
+    public static final int heightStarShipShoot = 13;
+
+    // Unité de déplacement du tir
+    public final static int dyStarShipShoot = 2;
 }
