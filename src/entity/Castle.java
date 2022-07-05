@@ -90,4 +90,34 @@ public class Castle extends Entity{
             }
         }
     }
+
+    public int findColumnCastle(int xShoot){
+        // Trouve la colone du tableau associé au château touché par le tir
+        int column = -1;
+        column = (xShoot - this.xPos) / Constant.brickSize;
+        return column;
+    }
+
+    public int findBrick(int column){
+        // Trouve la première brique en partant du bas de la colonne du tableau associé au chpate ou renvoie -1
+        int line = nbrLines - 1;
+        while (line >= 0 && !castles[line][column]){line--;}
+        return line;
+    }
+
+    private void deleteBrick(int line, int column){
+        // Eliminitation des 6 premières briques de la colonne en partant du bas si elles existent
+        for(int count = 0; count < 6; count++){
+            if (line - count >= 0){
+                castles[line - count][column] = false;
+                if (column < nbrColumn - 1){castles[line - count][column + 1] = false;}
+            }
+        }
+    }
+
+    public void breakBrick(int xShoot){
+        // Récapitule les 3 méthodes qui rpécédent
+        int column = this.findColumnCastle(xShoot);
+        this.deleteBrick(findBrick(column), column);
+    }
 }

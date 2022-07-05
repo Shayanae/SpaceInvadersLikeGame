@@ -17,7 +17,7 @@ public class Scene extends JPanel {
     public AliensGroup aliensGroup = new AliensGroup();
     public StarShipShoot starShipShoot = new StarShipShoot();
 
-    private Castle castles[] = new Castle[4]; // Création d'un tableau contenant les 4 châteaux
+    public Castle castles[] = new Castle[4]; // Création d'un tableau contenant les 4 châteaux
 
     // CONSTRUCTEURS
 
@@ -66,5 +66,8 @@ public class Scene extends JPanel {
 
         // Détection des chateaux
         for (int column = 0; column < 4; column++){this.castles[column].drawCastle(g2);}
+
+        //Détection contact starShipShoot avec château
+        this.starShipShoot.starShipShootDestroyCastle(castles);
     }
 }
