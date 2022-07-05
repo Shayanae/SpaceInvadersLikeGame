@@ -20,6 +20,7 @@ public class Alien extends Entity{
         super.height = Constant.alienHeight;
         super.dx = 0;
         super.dy = 0;
+        super.alive = true;
         // Adresse des images du vaisseau
         super.strImg1 = strImg1;
         super.strImg2 = strImg2;
@@ -32,8 +33,10 @@ public class Alien extends Entity{
     // METHODES
     public void imageChoice(boolean pos1){
         // Methode qui charge l'image de l'alien selon sa position (1 ou 2)
-        if (pos1){super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg1)));}
-        else{super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg2)));}
+        if (this.alive) {
+            if (pos1) {super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg1)));
+            } else {super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg2)));}
+        } else{ super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg3)));}
         super.img = this.ico.getImage(); // recharge l'image
     }
 }

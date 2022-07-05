@@ -47,4 +47,17 @@ public abstract class Constant {
 
     // Unité de déplacement du tir
     public final static int dyStarShipShoot = 2;
+
+    /********************************** CHATEAU *************************************/
+    // Dimension de la brique
+    public static final int brickSize = 2;
+
+    // Dimensions du château (multiples des dimensions de la brique)
+    public static final int castleWidth = 72;
+    public static final int castleHeight = 54;
+
+    // Paramètres de position des châteaux
+    public final static int yPosCastle = 400;
+    public final static int xPosCastle = 39;
+    public final static int castleGap = 42;
 }

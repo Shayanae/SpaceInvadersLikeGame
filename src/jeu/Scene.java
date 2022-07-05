@@ -1,6 +1,7 @@
 package jeu;
 
 import entity.AliensGroup;
+import entity.Castle;
 import entity.StarShip;
 import entity.StarShipShoot;
 import ressources.Constant;
@@ -16,10 +17,17 @@ public class Scene extends JPanel {
     public AliensGroup aliensGroup = new AliensGroup();
     public StarShipShoot starShipShoot = new StarShipShoot();
 
+    private Castle castles[] = new Castle[4]; // Création d'un tableau contenant les 4 châteaux
+
     // CONSTRUCTEURS
 
     public Scene(){
         super();
+
+        // Instanciation des châteaux
+        for (int column = 0; column < 4; column++){
+            this.castles[column] = new Castle(Constant.windowMargin + Constant.xPosCastle + column * (Constant.castleWidth + Constant.castleGap));
+        }
 
         // Instanciation du clavier
         this.setFocusable(true);
@@ -52,5 +60,11 @@ public class Scene extends JPanel {
 
         // Dessin du tir du vaisseau
         this.starShipShoot.drawStarShipFire(g2);
+
+        // Détection contact StarShipShoot avec alien
+        this.aliensGroup.starShipShootHitAlien(this.starShipShoot);
+
+        // Détection des chateaux
+        for (int column = 0; column < 4; column++){this.castles[column].drawCastle(g2);}
     }
 }

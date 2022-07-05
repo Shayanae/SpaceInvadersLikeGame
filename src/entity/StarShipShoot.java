@@ -47,4 +47,14 @@ public class StarShipShoot extends Entity{
     public void drawStarShipFire(Graphics g){
         if(this.starShipFire){g.drawImage(this.img, this.xPos, this.starShipFireDisplacement(), null);}
     }
+
+    public boolean killAlien(Alien alien){
+        // le tir du vaisseau détruit un alien
+
+        if (this.yPos < alien.getyPos() + alien.getHeight()
+                && this.yPos + this.height > alien.getyPos()
+                && this.xPos + this.weight > alien.getxPos()
+                && this.xPos < alien.getxPos() + alien.getWeight()){ return true;}
+        else{return false;}
+    }
 }
