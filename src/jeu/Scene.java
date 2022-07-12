@@ -76,13 +76,24 @@ public class Scene extends JPanel {
         // Dessin des tirs des aliens
         if(Timer.roundCount % 500 == 0) {
         	alienShoot1 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
-        if(this.alienShoot1 != null) {this.alienShoot1.drawAlienShoot(g2);}
+        if(this.alienShoot1 != null) {
+        	this.alienShoot1.drawAlienShoot(g2);
+        	this.alienShoot1.alienShootDestroyCastle(castles); // Détection contact alienShoot1 avec château
+        	if(this.alienShoot1.hitStarShip(starShip)) {this.starShip.setAlive(false);}
+        }
         if(Timer.roundCount % 750 == 0) {
         	alienShoot2 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
-        if(this.alienShoot2 != null) {this.alienShoot2.drawAlienShoot(g2);
+        if(this.alienShoot2 != null) {
+        	this.alienShoot2.drawAlienShoot(g2);
+        	this.alienShoot2.alienShootDestroyCastle(castles); // Détection contact alienShoot2 avec château
+        	if(this.alienShoot2.hitStarShip(starShip)) {this.starShip.setAlive(false);}
+        }
         if(Timer.roundCount % 900 == 0) {
         	alienShoot3 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
-        if(this.alienShoot3 != null) {this.alienShoot3.drawAlienShoot(g2);}
+        if(this.alienShoot3 != null) {
+        	this.alienShoot3.drawAlienShoot(g2);
+        	this.alienShoot3.alienShootDestroyCastle(castles); // Détection contact alienShoot3 avec château
+        	if(this.alienShoot3.hitStarShip(starShip)) {this.starShip.setAlive(false);}
         }
     }
 }

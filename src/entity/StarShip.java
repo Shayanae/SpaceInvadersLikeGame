@@ -1,14 +1,19 @@
 package entity;
 
 import ressources.Constant;
+import ressources.Timer;
 
 import javax.swing.*;
+
+import jeu.Main;
+
 import java.awt.*;
 import java.util.Objects;
 
 public class StarShip extends Entity{
 
     // VARIABLES
+	private int count = 0;
 
     // CONSTRUCTEUR
 
@@ -24,9 +29,11 @@ public class StarShip extends Entity{
         // Adresse des images du vaisseau
         super.strImg1 = "/images/vaisseau.png";
         super.strImg2 = "/images/vaisseauDetruit1.png";
+        super.strImg3 = "";
         // Chargement de l'image du vaiseeau
         super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(super.strImg1)));
         super.img = this.ico.getImage();
+        super.alive = true;
     }
 
     // METHODES
@@ -41,6 +48,16 @@ public class StarShip extends Entity{
     }
 
     public void drawStarShip(Graphics g){
+    	if(!this.alive) {this.starShipExplodes();}
         g.drawImage(this.img, this.starShipDisplacement(), this.yPos, null);
+    }
+    
+    public void starShipExplodes() {
+    	if(count < 300) {
+    		if(Timer.roundCount % 2 == 0) {super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(super.strImg2)));}
+    		else{super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(strImg3)));}
+    		count++;
+    	}else {Main.game = false;}
+    	super.img = this.ico.getImage();
     }
 }

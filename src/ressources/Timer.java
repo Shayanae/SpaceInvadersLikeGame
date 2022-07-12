@@ -14,7 +14,7 @@ public class Timer implements Runnable{
 
     @Override
     public void run() {
-        while (true){
+        while (Main.game){
             roundCount++;
             Main.scene.repaint(); // Appel de la méthode PaintComponent de l'objet scene
             try{Thread.sleep(pause);} // temps de pause (5ms)

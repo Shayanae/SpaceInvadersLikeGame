@@ -9,6 +9,7 @@ public class Main {
     // VARIABLES
 
 	public static Scene scene;
+	public static boolean game = true;
 
     public static void main(String[] args) {
         // Création de la fenêtre de l'application

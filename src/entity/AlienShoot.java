@@ -102,5 +102,15 @@ public class AlienShoot extends Entity{
 			}
 		}
 	}
+	
+	public boolean hitStarShip(StarShip starShip) {
+		// Renvoie vrai si un tir Alien touche le vaisseau
+		if(this.yPos < starShip.getyPos() + starShip.getHeight() && this.yPos + this.height > starShip.getyPos() &&
+				this.xPos + this.weight > starShip.getxPos() && this.xPos < starShip.getxPos() + starShip.getWeight()) {
+			this.yPos = 700;
+			return true;
+		}
+		else {return false;}
+	}
 }
 
