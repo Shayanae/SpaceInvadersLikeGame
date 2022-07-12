@@ -71,4 +71,16 @@ public abstract class Constant {
     
     // Unité de déplacement du tir
     public final static int dyAlienShoot = 3;
+    
+    /********************************** UFO *****************************************/
+    // Dimensions de la soucoupe
+    public static final int uFOWidth = 42;
+    public static final int uFOHeight = 22;
+    
+    // Position initiale de la soucoupe
+    public final static int xPosUFO = windowWidth;
+    public final static int yPosUFO = 50;
+    
+    // Unité de déplacement de la soucoupe
+    public final static int dxUFO = 1; 
 }

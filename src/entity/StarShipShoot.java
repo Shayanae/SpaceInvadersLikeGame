@@ -114,4 +114,13 @@ public class StarShipShoot extends Entity{
             }
         }
     }
+    
+    public boolean destroyUFO(UFO ufo) {
+    	// Contact missile avec la soucoup
+    	if(this.yPos < ufo.getyPos() + ufo.getHeight() && this.yPos + this.height > ufo.getyPos() &&
+    			this.xPos + this.weight > ufo.getxPos() && this.xPos < ufo.getxPos() + ufo.getWeight()) {
+    		this.starShipFire = false; // On tue le tir
+    		return true;
+    	}else {return false;}
+    }
 }

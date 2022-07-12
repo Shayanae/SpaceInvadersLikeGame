@@ -5,6 +5,7 @@ import entity.AliensGroup;
 import entity.Castle;
 import entity.StarShip;
 import entity.StarShipShoot;
+import entity.UFO;
 import ressources.Constant;
 import ressources.Keyboard;
 import ressources.Timer;
@@ -21,6 +22,8 @@ public class Scene extends JPanel {
     public Castle castles[] = new Castle[4]; // Création d'un tableau contenant les 4 châteaux
     
     public AlienShoot alienShoot1, alienShoot2, alienShoot3;
+    
+    public UFO ufo;
 
     // CONSTRUCTEURS
 
@@ -94,6 +97,21 @@ public class Scene extends JPanel {
         	this.alienShoot3.drawAlienShoot(g2);
         	this.alienShoot3.alienShootDestroyCastle(castles); // Détection contact alienShoot3 avec château
         	if(this.alienShoot3.hitStarShip(starShip)) {this.starShip.setAlive(false);}
+        }
+       // Dessin de la soucoupe
+        if(Timer.roundCount % 2500 == 0) {ufo = new UFO();}
+        if(this.ufo != null) {
+        	if(this.ufo.getxPos() > 0) {
+        		// Détection contact tir vaisseau avec soucoupe
+        		if(this.starShipShoot.destroyUFO(this.ufo)) {
+        			this.ufo.setDx(0);
+        			this.ufo.setAlive(false);
+        			this.ufo.uFOSound.stop();
+        			this.ufo.uFODestroySound.play();
+        		}
+        		this.ufo.drawUFO(g2);
+        		}
+        	else {this.ufo = null;}
         }
     }
 }
