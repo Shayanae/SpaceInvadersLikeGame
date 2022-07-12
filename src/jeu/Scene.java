@@ -1,5 +1,6 @@
 package jeu;
 
+import entity.AlienShoot;
 import entity.AliensGroup;
 import entity.Castle;
 import entity.StarShip;
@@ -18,6 +19,8 @@ public class Scene extends JPanel {
     public StarShipShoot starShipShoot = new StarShipShoot();
 
     public Castle castles[] = new Castle[4]; // Création d'un tableau contenant les 4 châteaux
+    
+    public AlienShoot alienShoot1, alienShoot2, alienShoot3;
 
     // CONSTRUCTEURS
 
@@ -69,5 +72,17 @@ public class Scene extends JPanel {
 
         //Détection contact starShipShoot avec château
         this.starShipShoot.starShipShootDestroyCastle(castles);
+        
+        // Dessin des tirs des aliens
+        if(Timer.roundCount % 500 == 0) {
+        	alienShoot1 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
+        if(this.alienShoot1 != null) {this.alienShoot1.drawAlienShoot(g2);}
+        if(Timer.roundCount % 750 == 0) {
+        	alienShoot2 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
+        if(this.alienShoot2 != null) {this.alienShoot2.drawAlienShoot(g2);
+        if(Timer.roundCount % 900 == 0) {
+        	alienShoot3 = new AlienShoot(this.aliensGroup.alienWhoShoot());}
+        if(this.alienShoot3 != null) {this.alienShoot3.drawAlienShoot(g2);}
+        }
     }
 }

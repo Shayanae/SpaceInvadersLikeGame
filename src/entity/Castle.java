@@ -120,4 +120,32 @@ public class Castle extends Entity{
         int column = this.findColumnCastle(xShoot);
         this.deleteBrick(findBrick(column), column);
     }
+    
+    public int findHighBrick(int column) {
+    	// Trouve la première brique en partant du haut de la colonne du tableau
+    	// Associé au château ou renvoie -1
+    	int line = 0;
+    	if(column != -1) {
+    		while(line < nbrLines && !castles[line][column]) {line++;}}
+    	return line;
+    	}
+    
+    private void deleteHighBrick(int line, int column) {
+    	// Elimination des 6 premières briques de la colonne en partant du haut si elles existant
+    	for(int count = 0; count < 6; count++) {
+    		if(line + count < nbrLines && column != -1) {
+    			castles[line + count][column] = false;
+    			if(column < nbrColumn - 1) {
+    				castles[line + count][column +1] = false;
+    			}
+    		}
+    	}
+    }
+    
+    public void breakHighBrick(int xShoot) {
+    	// Récapitule les 3 méthodes qui précédent
+    	int column = this.findColumnCastle(xShoot);
+    	this.deleteHighBrick(findHighBrick(column), column);
+    	
+    }
 }

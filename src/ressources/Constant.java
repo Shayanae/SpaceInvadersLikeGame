@@ -39,6 +39,9 @@ public abstract class Constant {
     public final static int dxAlien = 2;
     public final static int dyAlien = 20;
     public final static int alienSpeed = 1;
+    
+    // Nombre total d'aliens
+    public final static int nbrAliens = 50;
 
     /********************************** TIR VAISSEAU *********************************/
     // Dimension du tir
@@ -60,4 +63,12 @@ public abstract class Constant {
     public final static int yPosCastle = 400;
     public final static int xPosCastle = 39;
     public final static int castleGap = 42;
+    
+    /********************************** TIR ALIEN ***********************************/
+    // Dimensions du tir
+    public static final int alienShootWidth = 5;
+    public static final int alienShootHeight = 15;
+    
+    // Unité de déplacement du tir
+    public final static int dyAlienShoot = 3;
 }

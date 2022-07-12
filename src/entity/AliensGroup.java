@@ -4,6 +4,7 @@ import ressources.Constant;
 import ressources.Timer;
 
 import java.awt.*;
+import java.util.Random;
 
 public class AliensGroup {
 
@@ -14,7 +15,10 @@ public class AliensGroup {
     private int speed;
 
     private int[] aliensDeath = {-1, -1}; // Emplacement alien mort dans le tableau aliens
-
+    
+    Random hasard = new Random();
+    
+    private int nbrAliens = Constant.nbrAliens;
 
     // Constructeur
 
@@ -170,5 +174,24 @@ public class AliensGroup {
     private void deleteDeathAlien(int[] aliensDeath){
         // Méthode qui enlève l'alien mort du tableau (case à null)
         this.aliens[aliensDeath[0]][aliensDeath[1]] = null;
+        this.nbrAliens--;
+    }
+    
+    public int[] alienWhoShoot() {
+    	// Renvoie la position d'un alien tiré au hasard dans aliens en bas de sa colonne (ligne, colonne)
+    	int alienPos[] = {-1, -1};
+    	if(this.nbrAliens !=0) { // On vérifie qu'il reste des aliens vivants
+    		do {
+    			int column = hasard.nextInt(10); // On tire au hasard une colonne du tableau aliens
+    			for(int line = 4; line >= 0; line --) { // On cherche le 1er alien vivant en partant du bas
+    				if(aliens[line][column]!= null) {
+    					alienPos[0] = this.aliens[line][column].getxPos();
+    					alienPos[1] = this.aliens[line][column].getyPos();
+    					break;
+    				}
+    			}
+    		}while(alienPos[0] == -1);
+    	}
+    	return alienPos;
     }
 }
