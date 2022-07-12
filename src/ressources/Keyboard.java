@@ -14,6 +14,7 @@ public class Keyboard implements KeyListener {
         	else if(e.getKeyCode() == KeyEvent.VK_LEFT){Main.scene.starShip.setDx(-Constant.dxStarShip);}
         	else if(e.getKeyCode() == KeyEvent.VK_SPACE){
             	if (!Main.scene.starShipShoot.isStarShipFire()){
+            		Audio.playSound("/sounds/sonTirVaisseau.wav");
                 	Main.scene.starShipShoot.setyPos(Constant.initial_StarShip_Y - Constant.heightStarShipShoot);
                 	Main.scene.starShipShoot.setxPos(Main.scene.starShip.getxPos() + Constant.starShipWidth/2 - 1);
                 	Main.scene.starShipShoot.setStarShipFire(true);

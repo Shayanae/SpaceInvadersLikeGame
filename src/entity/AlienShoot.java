@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 
 import jeu.Main;
+import ressources.Audio;
 import ressources.Constant;
 import ressources.Timer;
 
@@ -108,6 +109,7 @@ public class AlienShoot extends Entity{
 		if(this.yPos < starShip.getyPos() + starShip.getHeight() && this.yPos + this.height > starShip.getyPos() &&
 				this.xPos + this.weight > starShip.getxPos() && this.xPos < starShip.getxPos() + starShip.getWeight()) {
 			this.yPos = 700;
+			Audio.playSound("/sounds/sonDestructionVaisseau.wav");
 			return true;
 		}
 		else {return false;}

@@ -1,6 +1,7 @@
 package entity;
 
 import jeu.Main;
+import ressources.Audio;
 import ressources.Constant;
 
 import javax.swing.*;
@@ -55,7 +56,10 @@ public class StarShipShoot extends Entity{
         if (this.yPos < alien.getyPos() + alien.getHeight()
                 && this.yPos + this.height > alien.getyPos()
                 && this.xPos + this.weight > alien.getxPos()
-                && this.xPos < alien.getxPos() + alien.getWeight()){ return true;}
+                && this.xPos < alien.getxPos() + alien.getWeight()){
+        	Audio.playSound("/sounds/sonAlienMeurt.wav");
+        	return true;
+        	}
         else{return false;}
     }
 

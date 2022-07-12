@@ -1,5 +1,6 @@
 package entity;
 
+import ressources.Audio;
 import ressources.Constant;
 import ressources.Timer;
 
@@ -19,6 +20,8 @@ public class AliensGroup {
     Random hasard = new Random();
     
     private int nbrAliens = Constant.nbrAliens;
+    
+    private int soundCountAlien = 0;
 
     // Constructeur
 
@@ -147,6 +150,10 @@ public class AliensGroup {
                 }
             }
         }
+        // Les aliens émettent un son
+        this.playSoundAlien();
+        // Incrémentation du compteur de son
+        this.soundCountAlien++;
         // Changement de l'image de l'alien
         this.pos1 = !this.pos1;
         // Màj du sens de déplacement si un alien atteint le bord de la fenêtre
@@ -193,5 +200,13 @@ public class AliensGroup {
     		}while(alienPos[0] == -1);
     	}
     	return alienPos;
+    }
+    
+    private void playSoundAlien() { // Méthode qui joue le son de l'alien (4 sons possibles)
+    	int count = this.soundCountAlien % 4;
+    	if(count == 0) {Audio.playSound("/sounds/sonAlien1.wav");}
+    	else if(count == 1) {Audio.playSound("/sounds/sonAlien2.wav");}
+    	else if(count == 2) {Audio.playSound("/sounds/sonAlien3.wav");}
+    	else {Audio.playSound("/sounds/sonAlien4.wav");}
     }
 }

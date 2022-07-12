@@ -1,5 +1,6 @@
 package entity;
 
+import ressources.Audio;
 import ressources.Constant;
 
 import java.awt.*;
@@ -117,6 +118,7 @@ public class Castle extends Entity{
 
     public void breakBrick(int xShoot){
         // Récapitule les 3 méthodes qui rpécédent
+    	Audio.playSound("/sounds/sonCasseBrique.wav");
         int column = this.findColumnCastle(xShoot);
         this.deleteBrick(findBrick(column), column);
     }
@@ -144,6 +146,7 @@ public class Castle extends Entity{
     
     public void breakHighBrick(int xShoot) {
     	// Récapitule les 3 méthodes qui précédent
+    	Audio.playSound("/sounds/sonCasseBrique.wav");
     	int column = this.findColumnCastle(xShoot);
     	this.deleteHighBrick(findHighBrick(column), column);
     	
