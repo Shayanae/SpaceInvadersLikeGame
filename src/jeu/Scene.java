@@ -24,6 +24,11 @@ public class Scene extends JPanel {
     public AlienShoot alienShoot1, alienShoot2, alienShoot3;
     
     public UFO ufo;
+    
+    private Font displayScore = new Font("Arial", Font.PLAIN, 20);
+    private Font displayText = new Font("Arial", Font.PLAIN, 80);
+    
+    public int score = 0;
 
     // CONSTRUCTEURS
 
@@ -57,6 +62,10 @@ public class Scene extends JPanel {
         // Dessin ligne verte en bas de l'écran
         g2.setColor(Color.green);
         g2.fillRect(30, 530, 535, 5);
+        
+        // Affichage du score
+        g.setFont(displayScore);
+        g.drawString("Score : " + score, 400, 25);
 
         // Dessin du vaisseau
         this.starShip.drawStarShip(g2);
@@ -104,6 +113,7 @@ public class Scene extends JPanel {
         	if(this.ufo.getxPos() > 0) {
         		// Détection contact tir vaisseau avec soucoupe
         		if(this.starShipShoot.destroyUFO(this.ufo)) {
+        			if(this.starShipShoot.getDx() != 0) {this.score = this.score + Constant.ufoValue;}
         			this.ufo.setDx(0);
         			this.ufo.setAlive(false);
         			this.ufo.uFOSound.stop();

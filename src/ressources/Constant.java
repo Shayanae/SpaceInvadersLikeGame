@@ -82,5 +82,12 @@ public abstract class Constant {
     public final static int yPosUFO = 50;
     
     // Unité de déplacement de la soucoupe
-    public final static int dxUFO = 1; 
+    public final static int dxUFO = 1;
+    
+    /********************************** SCORE **************************************/
+    // Points attribués pour la destruction des aliens
+    public static final int highAlienValue = 50;
+    public static final int middleAlienValue = 40;
+    public static final int lowAlienValue = 20;
+    public static final int ufoValue = 100;
 }

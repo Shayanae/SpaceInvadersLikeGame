@@ -7,6 +7,8 @@ import ressources.Timer;
 import java.awt.*;
 import java.util.Random;
 
+import jeu.Main;
+
 public class AliensGroup {
 
     // VARIABLES
@@ -171,6 +173,9 @@ public class AliensGroup {
                         // On enregistre la position de l'alien mort dans el tableau
                         this.aliensDeath[0] = line;
                         this.aliensDeath[1] = column;
+                        if(line == 0) {Main.scene.score = Main.scene.score + Constant.highAlienValue;}
+                        else if(line > 0 && line < 3) { Main.scene.score = Main.scene.score + Constant.middleAlienValue;}
+                        else {Main.scene.score = Main.scene.score + Constant.lowAlienValue;}
                         break;
                     }
                 }
