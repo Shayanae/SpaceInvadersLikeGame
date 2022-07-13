@@ -81,6 +81,12 @@ public class Scene extends JPanel {
 
         // Détection des chateaux
         for (int column = 0; column < 4; column++){this.castles[column].drawCastle(g2);}
+        
+        // Message de début du jeu
+        if(Timer.roundCount < 500) {
+        	g.setFont(displayText);
+        	g.drawString("Good luck!", 95, 100);
+        }
 
         //Détection contact starShipShoot avec château
         this.starShipShoot.starShipShootDestroyCastle(castles);
@@ -123,5 +129,13 @@ public class Scene extends JPanel {
         		}
         	else {this.ufo = null;}
         }
+        
+        // Affichage de la fin du jeu
+        if(!this.starShip.isAlive()) {
+        	g.setFont(displayText);
+        	g.drawString("GAME OVER", 50, 100);
+        }
+        if(this.aliensGroup.getNbrAliens() == 0) {	aliensGroup = new AliensGroup();}
+        if(this.aliensGroup.posLowestAlien() > Constant.initial_StarShip_Y) {this.starShip.starShipExplodes();}
     }
 }

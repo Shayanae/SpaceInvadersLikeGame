@@ -214,4 +214,21 @@ public class AliensGroup {
     	else if(count == 2) {Audio.playSound("/sounds/sonAlien3.wav");}
     	else {Audio.playSound("/sounds/sonAlien4.wav");}
     }
+    
+    public int getNbrAliens() {return nbrAliens;}
+    
+    public int posLowestAlien() {
+    	// Renvoie l'altitude des pieds de l'alien le plus bas
+    	int posLow = 0, posLowFinal = 0;
+    	for(int column = 1; column < 10; column ++) {
+    		for(int line = 4; line >= 0; line--) {
+    			if(this.aliens[line][column] != null) {
+    				posLow = this.aliens[line][column].yPos + this.aliens[line][column].height;
+    				break;
+    			}
+    		}
+    		if(posLow > posLowFinal) {posLowFinal = posLow;}
+    	}
+    	return posLowFinal;
+    }
 }
